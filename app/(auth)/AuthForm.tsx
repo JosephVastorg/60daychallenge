@@ -12,7 +12,7 @@ function Submit({ label }: { label: string }) {
     <button
       type="submit"
       disabled={pending}
-      className="cut btn-accent h-14 grid place-items-center font-mono uppercase tracking-wide text-sm font-bold focusable disabled:opacity-60"
+      className="cut press btn-accent h-14 grid place-items-center font-mono uppercase tracking-wide text-sm font-bold focusable disabled:opacity-60"
     >
       {pending ? "…" : label}
     </button>

@@ -64,7 +64,7 @@ export function ChallengeGrid({
               onClick={() => setSelected(day)}
               aria-label={`Day ${day}, ${state}`}
               className={cn(
-                "cut relative aspect-square overflow-hidden focusable transition",
+                "cut press relative aspect-square overflow-hidden focusable transition",
                 "grid place-items-center font-mono text-[11px] font-bold",
                 completed && "btn-accent",
                 missed && "bg-miss/20 text-miss border border-miss/40",

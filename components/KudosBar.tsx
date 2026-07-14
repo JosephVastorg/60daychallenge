@@ -44,7 +44,7 @@ export function KudosBar({
         disabled={pending}
         aria-pressed={iGavePlain}
         className={cn(
-          "cut flex items-center gap-1.5 h-8 px-2.5 focusable transition",
+          "cut press flex items-center gap-1.5 h-8 px-2.5 focusable transition",
           iGavePlain ? "btn-accent" : "surface-2 text-muted hover:text-text",
         )}
       >
@@ -59,7 +59,7 @@ export function KudosBar({
           disabled={pending}
           aria-pressed={mine}
           className={cn(
-            "cut flex items-center gap-1 h-8 px-2 focusable transition text-sm",
+            "cut press flex items-center gap-1 h-8 px-2 focusable transition text-sm",
             mine ? "surface-2 ring-1 ring-accent" : "surface-2 opacity-80 hover:opacity-100",
           )}
         >

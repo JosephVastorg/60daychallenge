@@ -6,9 +6,9 @@ import { createClient } from "@/lib/supabase/server";
 import { COSMETICS } from "@/lib/gamification";
 
 /**
- * Apply a cosmetic accent or light/dark theme. Cosmetics unlock once the user's
- * lifetime XP reaches the cost (a gate, not a deduction — so spending never
- * lowers your leaderboard rank). Product decision; documented in the README.
+ * Equip a cosmetic accent. Cosmetics unlock once the user's lifetime XP reaches
+ * the cost (a gate, not a deduction — so spending never lowers your leaderboard
+ * rank). Product decision; documented in the README.
  */
 export async function setTheme(theme: string) {
   const supabase = await createClient();

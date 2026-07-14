@@ -34,7 +34,7 @@ export function Modal({
   return (
     <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center">
       <div
-        className="absolute inset-0 bg-black/70 animate-fade-in"
+        className="absolute inset-0 bg-black/40 backdrop-blur-sm animate-fade-in"
         onClick={onClose}
         aria-hidden
       />
@@ -44,7 +44,7 @@ export function Modal({
         aria-label={title}
         className={cn(
           "relative w-full sm:max-w-app max-h-[92dvh] overflow-y-auto no-scrollbar",
-          "cut-lg surface animate-slide-up",
+          "cut-lg surface shadow-2xl animate-slide-up",
           className,
         )}
       >

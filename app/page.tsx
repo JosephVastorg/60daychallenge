@@ -42,13 +42,13 @@ export default async function Landing() {
       <div className="mt-auto pt-10 grid gap-3">
         <Link
           href="/signup"
-          className="cut btn-accent h-14 grid place-items-center font-mono uppercase tracking-wide text-sm font-bold focusable"
+          className="cut press btn-accent h-14 grid place-items-center font-mono uppercase tracking-wide text-sm font-bold focusable"
         >
           Start the challenge <ArrowRight size={16} className="ml-2" />
         </Link>
         <Link
           href="/login"
-          className="cut surface-2 h-12 grid place-items-center font-mono uppercase tracking-wide text-xs font-bold text-muted hover:text-text focusable"
+          className="cut press surface-2 h-12 grid place-items-center font-mono uppercase tracking-wide text-xs font-bold text-muted hover:text-text focusable"
         >
           I already have an account
         </Link>

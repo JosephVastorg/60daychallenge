@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useRouter } from "next/navigation";
-import { Bell, LogOut, Moon, Sun, Lock, ShieldAlert } from "lucide-react";
+import { Bell, LogOut, Lock, ShieldAlert } from "lucide-react";
 import { Avatar } from "@/components/ui/avatar";
 import { Modal } from "@/components/ui/modal";
 import { Button } from "@/components/ui/button";
@@ -32,7 +32,6 @@ export function ProfileClient({
   const progress = Math.round(levelProgress(profile.xp) * 100);
   const earned = new Set(badges.map((b) => b.code));
   const unread = notifications.filter((n) => !n.read).length;
-  const isLight = profile.theme === "light";
 
   function apply(theme: string) {
     setError(null);
@@ -41,10 +40,6 @@ export function ProfileClient({
       if (!res.ok) setError(res.error ?? "Failed.");
       else router.refresh();
     });
-  }
-
-  function toggleLight() {
-    apply(isLight ? "dark" : "light");
   }
 
   function openNotifs() {
@@ -150,16 +145,6 @@ export function ProfileClient({
 
       {/* Preferences */}
       <section className="grid gap-2">
-        <button
-          onClick={toggleLight}
-          disabled={busy}
-          className="cut surface p-3 flex items-center gap-3 focusable"
-        >
-          {isLight ? <Sun size={18} /> : <Moon size={18} />}
-          <span className="text-sm font-bold">{isLight ? "Light mode" : "Dark mode"}</span>
-          <span className="ml-auto eyebrow">tap to switch</span>
-        </button>
-
         <form action={signOut}>
           <button
             type="submit"

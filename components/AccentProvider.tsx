@@ -4,8 +4,9 @@ import * as React from "react";
 import { COSMETICS } from "@/lib/gamification";
 
 /**
- * Applies the user's chosen cosmetic accent + light/dark class to <html> on the
- * client. `theme` is stored as either 'dark' | 'light' or a cosmetic id.
+ * Applies the user's chosen cosmetic accent to <html> on the client. `theme`
+ * holds a cosmetic id (e.g. 'ember'); anything else falls back to the default
+ * electric-blue accent baked into the light tokens.
  */
 export function AccentProvider({
   theme,
@@ -16,15 +17,6 @@ export function AccentProvider({
 }) {
   React.useEffect(() => {
     const root = document.documentElement;
-    // Light/dark toggle
-    if (theme === "light") {
-      root.classList.add("light");
-      root.classList.remove("dark");
-    } else {
-      root.classList.add("dark");
-      root.classList.remove("light");
-    }
-    // Cosmetic accent
     const cosmetic = COSMETICS.find((c) => c.id === theme);
     if (cosmetic) {
       root.style.setProperty("--accent", cosmetic.accent);
