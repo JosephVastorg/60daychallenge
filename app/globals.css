@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Theme tokens ─────────────────────────────────────────────────────────── */
+:root,
+.dark {
+  --bg: #06070a;
+  --surface: #0d0f14;
+  --surface-2: #14171f;
+  --border: #1e222c;
+  --text: #f2f4f8;
+  --muted: #6b7280;
+  --accent: #2563ff;
+}
+
+.light {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --surface-2: #eef1f5;
+  --border: #d7dce4;
+  --text: #0b0d12;
+  --muted: #6b7280;
+  --accent: #2563ff;
+}
+
+html {
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-feature-settings: "cv11", "ss01";
+  -webkit-font-smoothing: antialiased;
+  min-height: 100dvh;
+}
+
+@layer components {
+  /* Signature motif: angled bottom-right "cut" corner on every surface. */
+  .cut {
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - 8px),
+      calc(100% - 8px) 100%,
+      0 100%
+    );
+  }
+  .cut-lg {
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - 14px),
+      calc(100% - 14px) 100%,
+      0 100%
+    );
+  }
+
+  .eyebrow {
+    @apply font-mono uppercase tracking-eyebrow text-[10px] text-muted;
+  }
+
+  .surface {
+    background: var(--surface);
+    border: 1px solid var(--border);
+  }
+  .surface-2 {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+  }
+
+  .btn-accent {
+    background: var(--accent);
+    color: white;
+  }
+  .btn-accent:hover {
+    filter: brightness(1.08);
+  }
+
+  /* Accessible focus ring on interactive elements. */
+  .focusable:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+/* Accent can be re-skinned by cosmetics at runtime via a data attribute. */
+[data-accent] {
+  --accent: attr(data-accent);
+}
+
+/* ── Reduced motion: kill all animation/transition. ──────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Hide scrollbars on the app column but keep scrollability. */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
